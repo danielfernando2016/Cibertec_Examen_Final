@@ -1,64 +1,62 @@
-﻿using Cibertec_Examen_Final.DataAccess;
-using Cibertec_Examen_Final.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Cibertec_Examen_Final.DataAccess;
+using Cibertec_Examen_Final.Model;
 
-namespace Cibertec_Examen_Final.Controllers
+namespace Cibertec_Examen_Final.Areas.Authores.Controllers
 {
-    public class BooksController : Controller
+    public class AuthorsController : Controller
     {
-        // GET: Books
-        // GET: Books
-        private BooksData _bookData = new BooksData();
+        // GET: Authores/Authors
+        private AuthorsData _authorsData = new AuthorsData();
 
         public ActionResult Index()
         {
-            return View(_bookData.GetList());
+            return View(_authorsData.GetList());
         }
 
         public ActionResult Create()
         {
-            return View(new Books());
+            return View(new Authors());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Books author)
+        public ActionResult Create(Authors author)
         {
             //Primero
             if (ModelState.IsValid)
             {
-                _bookData.Add(author);
+                _authorsData.Add(author);
                 return RedirectToAction("Index");
             }
             return View();
         }
-
 
         //Edit
         public ActionResult Edit(int id)
         {
 
 
-            var Books = _bookData.GetBookId(id);
-            if (Books == null)
+            var Authors = _authorsData.GetAuthorId(id);
+            if (Authors == null)
                 RedirectToAction("Index");
-            return View(Books);
+            return View(Authors);
 
         }
 
         //Edit Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Books Books)
+        public ActionResult Edit(Authors Authors)
         {
             //Primero
             if (ModelState.IsValid)
             {
-                _bookData.Update(Books);
+                _authorsData.Update(Authors);
                 return RedirectToAction("Index");
             }
             return View();
@@ -70,20 +68,20 @@ namespace Cibertec_Examen_Final.Controllers
         {
 
 
-            var Books = _bookData.GetBookId(id);
-            if (Books == null)
+            var Authors = _authorsData.GetAuthorId(id);
+            if (Authors == null)
                 RedirectToAction("Index");
-            return View(Books);
+            return View(Authors);
 
         }
 
         //Edit Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Books Books)
+        public ActionResult Delete(Authors Authors)
         {
 
-            if (_bookData.Delete(Books) > 0)
+            if (_authorsData.Delete(Authors) > 0)
                 return RedirectToAction("Index");
 
             return View();

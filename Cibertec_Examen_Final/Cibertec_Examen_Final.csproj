@@ -17,7 +17,7 @@
     <AssemblyName>Cibertec_Examen_Final</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -167,9 +167,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Authores\AuthoresAreaRegistration.cs" />
+    <Compile Include="Areas\Authores\Controllers\AuthorsController.cs" />
+    <Compile Include="Areas\Book\BookAreaRegistration.cs" />
+    <Compile Include="Areas\Book\Controllers\BooksController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AuthorsController.cs" />
-    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,6 +192,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Book\Views\web.config" />
+    <Content Include="Areas\Book\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Book\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Book\Views\Books\Index.cshtml" />
+    <Content Include="Areas\Book\Views\Books\Create.cshtml" />
+    <Content Include="Areas\Authores\Views\web.config" />
+    <Content Include="Areas\Book\Views\Books\Edit.cshtml" />
+    <Content Include="Areas\Book\Views\Books\Delete.cshtml" />
+    <Content Include="Areas\Authores\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Authores\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Authores\Views\Authors\Index.cshtml" />
+    <Content Include="Areas\Authores\Views\Authors\Create.cshtml" />
+    <Content Include="Areas\Authores\Views\Authors\Edit.cshtml" />
+    <Content Include="Areas\Authores\Views\Authors\Delete.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -236,18 +252,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Authors\Index.cshtml" />
-    <Content Include="Views\Authors\Create.cshtml" />
-    <Content Include="Views\Authors\Edit.cshtml" />
-    <Content Include="Views\Authors\Delete.cshtml" />
-    <Content Include="Views\Books\Create.cshtml" />
-    <Content Include="Views\Books\Edit.cshtml" />
-    <Content Include="Views\Books\Delete.cshtml" />
-    <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Shared\_MenuOption.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Authores\Models\" />
+    <Folder Include="Areas\Book\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -285,7 +295,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2773</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2773/</IISUrl>
+          <IISUrl>http://localhost/Cibertec_Examen_Final</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

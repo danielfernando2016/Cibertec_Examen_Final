@@ -1,15 +1,12 @@
 ﻿<ul class="nav navbar-nav">
     <li>@Html.ActionLink("Home", "Index", new { controller = "Home", area = "" })</li>
-    <li>@Html.ActionLink("Autores", "Index", new { controller = "Authors", area = "" })</li>
-    <li>@Html.ActionLink("Libros", "Index", new { controller = "Books", area = "" })</li>
+    @*<li>@Html.ActionLink("Autores", "Index", new { controller = "Authors", area = "" })</li>*@
+    @*<li>@Html.ActionLink("Libros", "Index", new { controller = "Books", area = "" })</li>*@
     @if (Request.IsAuthenticated)
     {
-        if (User.IsInRole("Admin"))
-        {
-            //Aun por Implementar
-            <li>@Html.ActionLink("Intranet", "Index", new { controller = "Internal", area = "Internal" })</li>
-        }
         
+        <li>@Html.ActionLink("Books", "Index", new { controller = "Books", area = "Book" })</li>
+        <li>@Html.ActionLink("Authors", "Index", new { controller = "Authors", area = "Authores" })</li>
         //<li>@Html.ActionLink("Personal", "Index", new { controller = "Personal", area = "Personal" })</li>
     }
 </ul>
